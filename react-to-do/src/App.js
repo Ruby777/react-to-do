@@ -33,7 +33,10 @@ class App extends Component {
   }
   deleteTodo(index){
     console.log("this item should be deleted");
-    //this.setState({todos.filter(todos => toDo.index !== index )});
+    //var newState = this.state.todos
+    //newState.splice(index, 1);
+    //this.setState({ todos:newState });
+    this.setState({todos.filter(todos => toDo.index !== index )})
 
   }
 
