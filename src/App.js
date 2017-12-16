@@ -31,12 +31,13 @@ class App extends Component {
     todo.isCompleted = todo.isCompleted ? false : true;
     this.setState({ todos: todos });
   }
-  deleteTodo(index){
-    console.log("this item should be deleted");
-    //var newState = this.state.todos
-    //newState.splice(index, 1);
-    //this.setState({ todos:newState });
-    this.setState({todos.filter(todos => toDo.index !== index )})
+  deleteTodo(todoToDelete){
+    // var newState = this.state.todos
+    // newState.splice(todoToDelete, 1);
+    // this.setState({ todos:newState });
+    this.setState({
+     todos:this.state.todos.filter(todo => todo !== todoToDelete )
+   })
 
   }
 
@@ -45,7 +46,7 @@ class App extends Component {
       <div className="App">
        <ul>
         { this.state.todos.map( (todo, index) =>
-          <ToDo key={ index } description={ todo.description } isCompleted={ todo.isCompleted } toggleComplete={ () => this.toggleComplete(index) } deleteTodo={ () => this.deleteTodo(index)} />
+          <ToDo key={ index } description={ todo.description } isCompleted={ todo.isCompleted } toggleComplete={ () => this.toggleComplete(index) } deleteTodo={ () => this.deleteTodo(todo)} />
         )}
        </ul>
        <form onSubmit={ (e) => this.handleSubmit(e) }>
